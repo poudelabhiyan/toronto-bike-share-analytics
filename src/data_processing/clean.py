@@ -146,4 +146,9 @@ def clean_data(df: pd.DataFrame) -> pd.DataFrame:
         df = df.dropna(subset=datetime_cols, how="all")
 
     return df
-# functions for cleaning data
+# def _get_duration_column(df: pd.DataFrame) -> str | None:
+    for col in df.columns:
+        if col.lower().replace(" ", "") == "tripduration":
+            return col
+    return None
+functions for cleaning data
