@@ -89,3 +89,33 @@ def test_compute_top_stations_empty_dataframe():
     assert isinstance(result, pd.DataFrame)
     assert len(result) == 0
     assert list(result.columns) == ["station", "trip_count"]
+
+def compute_station_usage_filtered(
+    df: pd.DataFrame,
+    station_col: str = "Start Station Name",
+    selected_stations: list[str] | None = None,
+):
+    """
+    Return station usage filtered by station list.
+    Used for dashboard integration.
+    """
+    usage = compute_station_usage(df, station_col)
+
+    if selected_stations:
+        usage = usage[usage["station"].isin(selected_stations)]
+
+    return usage
+def test_compute_station_usage_filtered():
+    data = {
+        "Start Station Name": ["A", "A", "B", "C"],
+    }
+    df = pd.DataFrame(data)
+
+    usage = compute_station_usage_filtered(
+        df, station_col="Start Station Name", selected_stations=["A"]
+    )
+
+    assert len(usage) == 1
+    assert usage.iloc[0]["station"] == "A"
+    assert usage.iloc[0]["trip_count"] == 2
+
