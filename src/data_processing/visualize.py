@@ -56,3 +56,7 @@ def plot_trip_duration(
 
     fig.tight_layout()
     return fig
+<<<<<<< HEAD
+=======
+
+>>>>>>> b1ec868e132260de9f1142f38dc2aeca281cd73e

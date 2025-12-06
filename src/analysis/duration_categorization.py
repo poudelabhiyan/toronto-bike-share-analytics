@@ -26,7 +26,11 @@ def categorize_trip_duration(
     -------
     pd.DataFrame
         A copy of the original DataFrame with an extra column
+<<<<<<< HEAD
         ``"duration_category"`` containing the labels
+=======
+        `⁠ "duration_category" ⁠` containing the labels
+>>>>>>> b1ec868e132260de9f1142f38dc2aeca281cd73e
         "short", "medium", or "long".
 
     Raises
