@@ -1,7 +1,6 @@
 Toronto Bike-Sharing Analytics Tool
 
-A modular, test-driven analytical pipeline for processing, cleaning, analyzing, and visualizing Toronto Bike-Share trip-level data.
-Built using Python, PyTest, and Streamlit. Designed following Agile SCRUM methodology with fully implemented Sprint 1 and Sprint 2 deliverables.
+A modular, test-driven analytical pipeline for processing, cleaning, analyzing, and visualizing Toronto Bike-Share trip-level data. Built using Python, PyTest, and Streamlit. Designed following Agile SCRUM methodology with fully implemented Sprint 1 and Sprint 2 deliverables.
 
 Table of Contents
 
@@ -27,12 +26,11 @@ Contributors
 
 License
 
-1. Project Overview
+Project Overview
 
-This project provides a complete workflow to ingest the Toronto Bike Share dataset, clean it, generate descriptive analytics, and display insights through a modular dashboard.
-The system uses a test-driven development approach with full PyTest coverage for reliability.
+This project provides a complete workflow to ingest the Toronto Bike Share dataset, clean it, generate descriptive analytics, and present insights in an interactive Streamlit dashboard. The system is fully test-driven, with modules validated by PyTest.
 
-2. Repository Structure
+Repository Structure
 Toronto-Bike-Analytics-Tool/
 │
 ├── data/
@@ -69,31 +67,31 @@ Toronto-Bike-Analytics-Tool/
 │
 └── README.md
 
-3. Sprint 1 Summary
+Sprint 1 Summary
 Objective
 
-Build the foundation of the data processing pipeline with proper TDD.
+Build the core data ingestion and cleaning modules using TDD.
 
 Deliverables
 Component	Status	Description
-Load module	Completed	Safe CSV loading with encoding fallback and required-column validation
-Clean module	Completed	Standardization, type fixing, MAR/MCAR handling, outlier removal
-PyTest setup	Completed	Base test suite created and passing
-Repository scaffolding	Completed	Clean module structure and documentation
-4. Sprint 2 Summary
+Load module	Completed	CSV loading with encoding fallback and required-column validation
+Clean module	Completed	Name standardization, missing value handling (MAR/MCAR), type fixing
+PyTest suite	Completed	Foundational test files and passing tests
+Project structure	Completed	Modular package layout with folders for processing, analysis, and tests
+Sprint 2 Summary
 Objective
 
-Add analysis logic, visualization utilities, and the first version of the dashboard.
+Implement analysis modules, visualization utilities, and the initial dashboard structure.
 
 Deliverables
 Component	Status	Description
-Peak hour analysis	Completed	Hour extraction and hourly counts
-Duration categorization	Completed	Short, medium, long classification
-Station usage module	Completed	Trip count by station
-Visualizations	Completed	Trip duration, peak hour histogram, station charts
-Dashboard base	Completed	Layout, filters, KPIs
-All tests	Completed	22 passing tests across modules
-5. Installation
+Peak hour analysis	Completed	Hour extraction and hourly aggregation
+Duration categorization	Completed	Classification into short, medium, and long
+Station usage	Completed	Trip count per station
+Visualization utilities	Completed	Histograms, bar charts, duration distribution
+Streamlit dashboard	Completed	KPIs, filters, layout, and charts
+Test coverage	Completed	All analysis modules tested; 22 tests passing
+Installation
 Clone the repository
 git clone https://github.com/yourusername/Toronto-Bike-Analytics-Tool.git
 cd Toronto-Bike-Analytics-Tool
@@ -101,54 +99,54 @@ cd Toronto-Bike-Analytics-Tool
 Install dependencies
 pip install -r requirements.txt
 
-6. Running Tests
+Running Tests
 
-To run the full test suite:
+Run full test suite:
 
 pytest
 
 
-Expected output:
+Expected result:
 
-======================== 22 passed in 6.13s ========================
+22 passed in X.XXs
 
-7. Dashboard Usage
+Dashboard Usage
 
-Run the Streamlit dashboard:
+Run the Streamlit app:
 
 streamlit run src/dashboard/app.py
 
 
-The dashboard includes:
+Features include:
 
-Filters
+Sidebar filters
 
-KPIs
+Trip KPIs
 
-Duration charts
+Peak hour chart
 
-Station usage charts
+Station rankings
 
-Hourly trend charts
+Duration category chart
 
-8. Module Documentation
+Data preview
+
+Module Documentation
 Data Loading
 from src.data_processing.load import load_data
 df = load_data("data/bike_sharing.csv")
 
-Data Cleaning
+Cleaning Module
 
 Includes:
 
 Column normalization
 
-Datetime parsing
-
-Duration type conversion
+Datetime and numeric parsing
 
 Missing value imputation using MAR logic
 
-Outlier removal
+Outlier trimming using quantiles
 
 Analysis Modules
 
@@ -160,42 +158,38 @@ compute_station_usage
 
 categorize_trip_duration
 
-Visualization Modules
+Visualization
 
-Trip duration distribution
+Trip duration histograms
 
-Peak hour histogram
+Peak hour histograms
 
-Station ranking charts
-
-Duration vs hour scatter plot
+Station usage bar charts
 
 Dashboard
 
-Defined in src/dashboard/app.py with:
+app.py contains full layout and rendering logic
 
-Sidebar filters
+Future Enhancements
 
-KPI section
+Geographic visualizations
 
-Chart rendering
+Predictive modelling
 
-9. Future Enhancements
+API integration
 
-Station location map visualizations
+Time-series forecasting
 
-Predictive analytics (forecasting demand)
+Contributors
 
-Integration with external APIs
+Abhiyan Poudel
 
-Improved interactive dashboard features
+Devarsh
 
-10. Contributors
+Yash
 
-Abhiyan Poudel (Product Owner)
+Bibal
 
-Team Members: Devarsh, Yash, Bibal
+License
 
-11. License
-
-This project is for academic purposes under the University of Niagara Falls Canada guidelines.
+This project is created for academic use under the University of Niagara Falls Canada guidelines.
