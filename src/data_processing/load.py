@@ -54,8 +54,3 @@ def load_data(file_path: str, required_columns: Optional[List[str]] = None) -> p
         if missing:
             raise ValueError(f"Missing required columns: {missing}")
 
-<<<<<<< HEAD
-
-=======
->>>>>>> b1ec868e132260de9f1142f38dc2aeca281cd73e
-    return df
