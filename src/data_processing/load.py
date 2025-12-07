@@ -33,7 +33,7 @@ def load_data(file_path: str, required_columns: Optional[List[str]] = None) -> p
     if not path.exists():
         raise FileNotFoundError(f"Dataset not found: {file_path}")
 
-    # Try reading with UTF-8, then fall back to latin1
+    # Try UTF-8, fallback to latin1
     try:
         df = pd.read_csv(path, encoding="utf-8", low_memory=False)
     except UnicodeDecodeError:
@@ -44,13 +44,10 @@ def load_data(file_path: str, required_columns: Optional[List[str]] = None) -> p
     except Exception as exc:
         raise ValueError(f"Unable to read dataset: {exc}")
 
-<<<<<<< HEAD
-    # US9: validate required columns, if provided
-=======
     # US9: Validate required columns
->>>>>>> b1ec868e132260de9f1142f38dc2aeca281cd73e
     if required_columns:
         missing = [col for col in required_columns if col not in df.columns]
         if missing:
             raise ValueError(f"Missing required columns: {missing}")
 
+    return df
