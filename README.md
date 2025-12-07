@@ -1,8 +1,8 @@
-Toronto Bike-Sharing Analytics Tool
+# Toronto Bike-Sharing Analytics Tool
 
-A modular, test-driven analytical pipeline for processing, cleaning, analyzing, and visualizing Toronto Bike-Share trip-level data. Built using Python, PyTest, and Streamlit. Designed following Agile SCRUM methodology with fully implemented Sprint 1 and Sprint 2 deliverables.
+A modular, test-driven analytical pipeline for processing, cleaning, analyzing, and visualizing Toronto Bike-Share trip-level data. The project is built using Python, PyTest, and Streamlit, following Agile SCRUM methodology with fully completed Sprint 1 and Sprint 2 deliverables.
 
-Table of Contents
+## Table of Contents
 
 Project Overview
 
@@ -26,9 +26,9 @@ Contributors
 
 License
 
-Project Overview
+## Project Overview
 
-This project provides a complete workflow to ingest the Toronto Bike Share dataset, clean it, generate descriptive analytics, and present insights in an interactive Streamlit dashboard. The system is fully test-driven, with modules validated by PyTest.
+This project provides a complete, modular workflow that processes the Toronto Bike-Sharing dataset from raw CSV to a fully interactive analytics dashboard. The system is test-driven and includes data loading, cleaning, descriptive analysis, visualization, and dashboard implementation.
 
 Repository Structure
 Toronto-Bike-Analytics-Tool/
@@ -67,88 +67,88 @@ Toronto-Bike-Analytics-Tool/
 │
 └── README.md
 
-Sprint 1 Summary
+## Sprint 1 Summary
 Objective
 
-Build the core data ingestion and cleaning modules using TDD.
+Develop the foundational data ingestion and cleaning pipeline using Test-Driven Development.
 
-Deliverables
-Component	Status	Description
-Load module	Completed	CSV loading with encoding fallback and required-column validation
-Clean module	Completed	Name standardization, missing value handling (MAR/MCAR), type fixing
-PyTest suite	Completed	Foundational test files and passing tests
-Project structure	Completed	Modular package layout with folders for processing, analysis, and tests
-Sprint 2 Summary
+## Completed Deliverables
+## Component	Description
+Load Module	CSV loading with fallback encodings and required-column validation
+Clean Module	Standardization, MAR/MCAR filling, type enforcement, outlier removal
+Project Structure	Organized into analysis, processing, dashboard, and tests
+Test Suite	Initial PyTest cases ensuring data integrity and module reliability
+
+## Sprint 2 Summary
 Objective
 
-Implement analysis modules, visualization utilities, and the initial dashboard structure.
+Implement analytical modules, visualization utilities, and an initial interactive dashboard.
 
-Deliverables
-Component	Status	Description
-Peak hour analysis	Completed	Hour extraction and hourly aggregation
-Duration categorization	Completed	Classification into short, medium, and long
-Station usage	Completed	Trip count per station
-Visualization utilities	Completed	Histograms, bar charts, duration distribution
-Streamlit dashboard	Completed	KPIs, filters, layout, and charts
-Test coverage	Completed	All analysis modules tested; 22 tests passing
-Installation
-Clone the repository
-git clone https://github.com/yourusername/Toronto-Bike-Analytics-Tool.git
+## Completed Deliverables
+## Component	Description
+Peak Hour Analysis	Extract and aggregate trip counts by hour
+Duration Categorization	Classify trips into short, medium, long
+Station Usage	Compute station-level demand metrics
+Visualization Library	Histogram, bar charts, duration distribution
+Streamlit Dashboard	Fully functional UI with KPIs, filters, and charts
+Expanded Test Coverage	All modules validated with passing tests
+
+## Installation
+Clone the Repository
+git clone https://github.com/yourusernam/Toronto-Bike-Analytics-Tool.git
 cd Toronto-Bike-Analytics-Tool
 
-Install dependencies
+## Install Dependencies
 pip install -r requirements.txt
 
-Running Tests
-
-Run full test suite:
-
+## Running Tests
+Execute the full PyTest suite
 pytest
 
 
-Expected result:
+## Expected output:
 
 22 passed in X.XXs
 
-Dashboard Usage
-
-Run the Streamlit app:
-
+## Dashboard Usage
+Launch Streamlit
 streamlit run src/dashboard/app.py
 
 
-Features include:
+## Dashboard Features:
 
-Sidebar filters
+Sidebar filters (date range, station, user type)
 
-Trip KPIs
+Key metrics (total trips, unique stations, busiest hour, date range)
 
-Peak hour chart
+Peak hour ridership visualization
 
-Station rankings
+Top stations usage chart
 
-Duration category chart
+Duration category distribution
 
-Data preview
+Filtered data preview
 
-Module Documentation
-Data Loading
+## Module Documentation
+1. Data Loading
 from src.data_processing.load import load_data
 df = load_data("data/bike_sharing.csv")
 
-Cleaning Module
+2. Data Cleaning
 
 Includes:
 
 Column normalization
 
-Datetime and numeric parsing
+Datetime and numeric fixes
 
-Missing value imputation using MAR logic
+Missing value handling using MAR logic
 
 Outlier trimming using quantiles
 
-Analysis Modules
+3. Analysis Modules
+
+Functions:
 
 compute_hourly_counts
 
@@ -158,38 +158,40 @@ compute_station_usage
 
 categorize_trip_duration
 
-Visualization
+4. Visualization
+
+Includes:
 
 Trip duration histograms
 
-Peak hour histograms
+Peak hour bar charts
 
-Station usage bar charts
+Station usage charts
 
-Dashboard
+5. Dashboard
 
-app.py contains full layout and rendering logic
+The Streamlit app in app.py integrates all modules into an end-to-end interface.
 
-Future Enhancements
+##Future Enhancements
 
-Geographic visualizations
+Add predictive modeling (e.g., demand forecasting)
 
-Predictive modelling
+Integrate geospatial mapping
 
-API integration
+Add real-time API ingestion
 
-Time-series forecasting
+Build multi-page dashboard architecture
 
-Contributors
+##Contributors
 
 Abhiyan Poudel
 
 Devarsh
 
-Yash
-
 Bibal
 
-License
+Yash
 
-This project is created for academic use under the University of Niagara Falls Canada guidelines.
+##License
+
+This project is created for academic purposes under the University of Niagara Falls Canada guidelines.
