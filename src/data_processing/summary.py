@@ -1,7 +1,29 @@
+<<<<<<< HEAD
+"""
+Summary utilities for the Toronto Bike Share trip-level dataset.
+
+This module assumes:
+- Raw data is loaded with load.load_data()
+- Data is cleaned with clean.clean_data()
+
+It provides:
+- Overall numeric summary for measure columns (excluding IDs)
+- Trip duration summary (mean, min, max, quantiles) in minutes
+- Trips by user type (counts and percentages)
+- Time-based summaries (by hour, weekday, month)
+- Station demand summaries (top start and end stations)
+- Missing values overview (for documentation)
+"""
+
+import pandas as pd
+from load import load_data
+from clean import clean_data
+=======
 # functions for summary statistics
 import pandas as pd
 from .load import load_data
 from .clean import clean_data
+>>>>>>> b1ec868e132260de9f1142f38dc2aeca281cd73e
 
 
 # Columns that should be treated as identifiers, not measures
@@ -22,7 +44,11 @@ def _get_duration_column(df: pd.DataFrame) -> str | None:
 
 def summary_statistics(df: pd.DataFrame) -> pd.DataFrame:
     """
+<<<<<<< HEAD
+    Generate summary statistics for numeric *measure* columns.
+=======
     Generate summary statistics for numeric measure columns.
+>>>>>>> b1ec868e132260de9f1142f38dc2aeca281cd73e
 
     - Excludes ID-like columns (Trip Id, Station Ids, Bike Id).
     - Returns count, mean, std, min, quartiles, max, and missing_values.
@@ -258,7 +284,11 @@ def missing_values_overview(df: pd.DataFrame) -> pd.DataFrame:
     return overview
 
 
+<<<<<<< HEAD
+if __name__ == "__main__":
+=======
 if _name_ == "_main_":
+>>>>>>> b1ec868e132260de9f1142f38dc2aeca281cd73e
     # End-to-end summary when run as a script
     # 1 Load raw
     df_raw = load_data()
@@ -293,4 +323,7 @@ if _name_ == "_main_":
 
     print("\n=== Missing values overview ===")
     print(missing_values_overview(df_clean))
+<<<<<<< HEAD
+=======
 
+>>>>>>> b1ec868e132260de9f1142f38dc2aeca281cd73e

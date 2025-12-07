@@ -44,10 +44,18 @@ def load_data(file_path: str, required_columns: Optional[List[str]] = None) -> p
     except Exception as exc:
         raise ValueError(f"Unable to read dataset: {exc}")
 
+<<<<<<< HEAD
+    # US9: validate required columns, if provided
+=======
     # US9: Validate required columns
+>>>>>>> b1ec868e132260de9f1142f38dc2aeca281cd73e
     if required_columns:
         missing = [col for col in required_columns if col not in df.columns]
         if missing:
             raise ValueError(f"Missing required columns: {missing}")
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> b1ec868e132260de9f1142f38dc2aeca281cd73e
     return df

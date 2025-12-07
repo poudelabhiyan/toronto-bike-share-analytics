@@ -9,4 +9,7 @@ def test_plot_trip_duration_runs():
 
     # The function should return a matplotlib Figure
     assert fig is not None
+<<<<<<< HEAD
+=======
 # tests for visualizations
+>>>>>>> b1ec868e132260de9f1142f38dc2aeca281cd73e
