@@ -74,10 +74,14 @@ Develop the foundational data ingestion and cleaning pipeline using Test-Driven 
 
 ## Completed Deliverables
 ## Component	Description
-Load Module	CSV loading with fallback encodings and required-column validation
-Clean Module	Standardization, MAR/MCAR filling, type enforcement, outlier removal
-Project Structure	Organized into analysis, processing, dashboard, and tests
-Test Suite	Initial PyTest cases ensuring data integrity and module reliability
+
+### Load Module	CSV loading with fallback encodings and required-column validation
+
+### Clean Module	Standardization, MAR/MCAR filling, type enforcement, outlier removal
+
+### Project Structure	Organized into analysis, processing, dashboard, and tests
+
+### Test Suite	Initial PyTest cases ensuring data integrity and module reliability
 
 ## Sprint 2 Summary
 Objective
@@ -86,12 +90,13 @@ Implement analytical modules, visualization utilities, and an initial interactiv
 
 ## Completed Deliverables
 ## Component	Description
-Peak Hour Analysis	Extract and aggregate trip counts by hour
-Duration Categorization	Classify trips into short, medium, long
-Station Usage	Compute station-level demand metrics
-Visualization Library	Histogram, bar charts, duration distribution
-Streamlit Dashboard	Fully functional UI with KPIs, filters, and charts
-Expanded Test Coverage	All modules validated with passing tests
+
+### Peak Hour Analysis	Extract and aggregate trip counts by hour
+### Duration Categorization	Classify trips into short, medium, long
+### Station Usage	Compute station-level demand metrics
+### Visualization Library	Histogram, bar charts, duration distribution
+### Streamlit Dashboard	Fully functional UI with KPIs, filters, and charts
+### Expanded Test Coverage	All modules validated with passing tests
 
 ## Installation
 Clone the Repository
