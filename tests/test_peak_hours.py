@@ -78,7 +78,4 @@ def test_get_peak_hours_empty_df():
     peak = get_peak_hours(df, timestamp_col="Start Time")
 
     assert peak == []
-<<<<<<< HEAD
-=======
 
->>>>>>> b1ec868e132260de9f1142f38dc2aeca281cd73e
