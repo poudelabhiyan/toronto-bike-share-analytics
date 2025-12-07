@@ -31,6 +31,7 @@ License
 This project provides a complete, modular workflow that processes the Toronto Bike-Sharing dataset from raw CSV to a fully interactive analytics dashboard. The system is test-driven and includes data loading, cleaning, descriptive analysis, visualization, and dashboard implementation.
 
 ## Repository Structure
+
 Toronto-Bike-Analytics-Tool/
 │
 ├── data/
