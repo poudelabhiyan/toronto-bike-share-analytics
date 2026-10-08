@@ -26,11 +26,7 @@ def categorize_trip_duration(
     -------
     pd.DataFrame
         A copy of the original DataFrame with an extra column
-<<<<<<< HEAD
         ``"duration_category"`` containing the labels
-=======
-        `⁠ "duration_category" ⁠` containing the labels
->>>>>>> b1ec868e132260de9f1142f38dc2aeca281cd73e
         "short", "medium", or "long".
 
     Raises
@@ -41,7 +37,20 @@ def categorize_trip_duration(
         If any duration value is negative.
     """
     if duration_col not in df.columns:
-        raise KeyError(duration_col)
+        # Fall back to detecting the duration column by normalized name,
+        # so both "Trip Duration" and the raw file's "Trip  Duration"
+        # (double space) resolve without caller changes.
+        detected = next(
+            (
+                col
+                for col in df.columns
+                if col.lower().replace(" ", "") == "tripduration"
+            ),
+            None,
+        )
+        if detected is None:
+            raise KeyError(duration_col)
+        duration_col = detected
 
     # Empty input -> return empty with correct column
     if df.empty:
