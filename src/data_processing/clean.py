@@ -8,9 +8,10 @@ def clean_data(df: pd.DataFrame) -> pd.DataFrame:
     Steps performed:
     1. Work on a copy to avoid mutating the caller’s DataFrame.
     2. Standardize column names.
-    3. Fill missing station names using station IDs.
-    4. Replace empty or missing station names with “Unknown”.
-    5. Ensure timestamp columns are parsed correctly.
+    3. Fill missing station names from the station ID -> name mapping
+       built from rows where the name is known; remaining gaps become
+       "Unknown".
+    4. Ensure timestamp columns are parsed correctly.
 
     Returns
     -------
@@ -22,23 +23,28 @@ def clean_data(df: pd.DataFrame) -> pd.DataFrame:
     # Standardize column names
     df_clean.columns = [col.strip() for col in df_clean.columns]
 
-    # Fill missing Start Station Name
-    if "Start Station Name" in df_clean.columns and "Start Station Id" in df_clean.columns:
-        df_clean["Start Station Name"] = df_clean["Start Station Name"].fillna(
-            df_clean["Start Station Id"].astype(str)
+    def _fill_station_names(id_col: str, name_col: str) -> None:
+        if id_col not in df_clean.columns or name_col not in df_clean.columns:
+            return
+        # Normalize blanks and placeholder strings ("NULL", "None", "nan")
+        # to missing so they participate in the fill
+        name_series = df_clean[name_col].astype(object)
+        stripped = name_series.astype(str).str.strip()
+        missing_mask = stripped.eq("") | stripped.str.lower().isin(
+            {"null", "none", "nan", "na", "n/a"}
         )
-
-    # Fill missing End Station Name
-    if "End Station Name" in df_clean.columns and "End Station Id" in df_clean.columns:
-        df_clean["End Station Name"] = df_clean["End Station Name"].fillna(
-            df_clean["End Station Id"].astype(str)
+        name_series = name_series.mask(missing_mask)
+        # Build ID -> name mapping from rows where the name is known
+        known = df_clean.loc[name_series.notna(), [id_col, name_col]]
+        mapping = (
+            known.drop_duplicates(subset=id_col, keep="first")
+            .set_index(id_col)[name_col]
         )
+        filled = name_series.fillna(df_clean[id_col].map(mapping))
+        df_clean[name_col] = filled.fillna("Unknown")
 
-    # Replace empty strings with Unknown
-    for col in ["Start Station Name", "End Station Name"]:
-        if col in df_clean.columns:
-            df_clean[col] = df_clean[col].astype(str).str.strip()
-            df_clean[col].replace("", "Unknown", inplace=True)
+    _fill_station_names("Start Station Id", "Start Station Name")
+    _fill_station_names("End Station Id", "End Station Name")
 
     # Convert Start Time column to datetime if present
     if "Start Time" in df_clean.columns:
