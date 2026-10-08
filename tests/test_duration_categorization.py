@@ -1,21 +1,15 @@
-<<<<<<< HEAD
 import sys
 from pathlib import Path
 
-=======
->>>>>>> b1ec868e132260de9f1142f38dc2aeca281cd73e
 import pandas as pd
 import pytest
 
 from src.analysis.duration_categorization import categorize_trip_duration
 
-<<<<<<< HEAD
 # Make sure project root is on sys.path so "src" can be imported
 ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
-=======
->>>>>>> b1ec868e132260de9f1142f38dc2aeca281cd73e
 
 
 def test_categorize_trip_duration_basic():
