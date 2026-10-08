@@ -101,7 +101,7 @@ Implement analytical modules, visualization utilities, and an initial interactiv
 
 ## Installation
 Clone the Repository
-git clone https://github.com/yourusernam/Toronto-Bike-Analytics-Tool.git
+git clone https://github.com/poudelabhiyan/Toronto-Bike-Analytics-Tool.git
 cd Toronto-Bike-Analytics-Tool
 
 ## Install Dependencies
